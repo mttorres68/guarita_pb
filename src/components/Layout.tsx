@@ -21,7 +21,7 @@ interface NavItemProps {
 const NavItem: React.FC<NavItemProps> = ({ to, icon, label }) => (
   <NavLink
     to={to}
-    className={({ isActive }) =>
+    className={({ isActive }: { isActive: boolean }) =>
       `flex items-center px-4 py-2 text-sm font-medium rounded-md transition-colors ${
         isActive
           ? "bg-gray-700 text-white"

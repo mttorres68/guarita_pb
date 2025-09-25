@@ -25,7 +25,7 @@ const DashboardPage: React.FC = () => {
   const [recentMovs, setRecentMovs] = useState<Movimentacao[] | null>(null);
   const [loading, setLoading] = useState(true);
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  // const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {

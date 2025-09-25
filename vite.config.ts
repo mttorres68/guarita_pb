@@ -7,8 +7,5 @@ export default defineConfig({
   server: {
     allowedHosts: true,
   },
-  plugins: [
-    react(), 
-    tailwindcss()
-  ],
+  plugins: [react(), tailwindcss()],
 });
