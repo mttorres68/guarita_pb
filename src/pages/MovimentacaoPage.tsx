@@ -204,7 +204,7 @@ const MovimentacaoPage: React.FC<MovimentacaoPageProps> = ({
                 ))
               : filteredMovimentacoes.map((mov) => (
                   <TableRow key={mov.id} className="text-gray-200">
-                    <TableCell >{mov.numero}</TableCell>
+                    <TableCell>{mov.numero}</TableCell>
                     <TableCell className="font-medium">{mov.placa}</TableCell>
                     <TableCell>{mov.produto}</TableCell>
                     <TableCell>{mov.transportadora}</TableCell>
@@ -226,7 +226,9 @@ const MovimentacaoPage: React.FC<MovimentacaoPageProps> = ({
         <Modal onClose={() => setIsModalOpen(false)}>
           <form onSubmit={handleAddMovimentacao}>
             <ModalHeader>
-              <h2 className="text-xl font-bold">Adicionar Nova Movimentação</h2>
+              <h2 className="text-xl font-bold text-white">
+                Adicionar Nova Movimentação
+              </h2>
             </ModalHeader>
             <ModalBody className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
@@ -236,6 +238,7 @@ const MovimentacaoPage: React.FC<MovimentacaoPageProps> = ({
                   name="placa"
                   onChange={handleInputChange}
                   required
+                  className="p-2"
                 />
               </div>
               <div>
