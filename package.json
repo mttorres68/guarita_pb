@@ -1,6 +1,7 @@
 {
   "name": "react-typescript",
   "version": "1.0.0",
+  "type": "module",
   "description": "React and TypeScript example starter project",
   "keywords": [
     "typescript",
@@ -9,12 +10,14 @@
   ],
   "main": "src/index.tsx",
   "dependencies": {
+    "@tailwindcss/vite": "^4.1.13",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-router": "7.9.1",
     "react-router-dom": "7.9.1",
     "recharts": "3.2.0",
     "shadcn": "3.2.1",
+    "tailwindcss": "^4.1.13",
     "zustand": "5.0.8"
   },
   "devDependencies": {
@@ -22,7 +25,7 @@
     "@types/react-dom": "18.2.15",
     "@vitejs/plugin-react": "^4.2.1",
     "typescript": "4.4.4",
-    "vite": "^5.0.11"
+    "vite": "^7.1.7"
   },
   "scripts": {
     "dev": "vite",
