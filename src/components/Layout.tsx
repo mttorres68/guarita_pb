@@ -11,6 +11,8 @@ import {
   Combine,
   Package,
 } from "./icons";
+import { SidebarProvider } from "./ui/sidebar";
+import { AppSidebar } from "./app-sidebar";
 
 interface NavItemProps {
   to: string;
@@ -63,86 +65,89 @@ const Accordion: React.FC<{
 
 const Layout: React.FC = () => {
   return (
-    <div className="flex h-screen bg-gray-900 text-gray-100">
-      <aside className="w-64 bg-gray-800 border-r border-gray-700 flex flex-col">
-        <div className="h-16 flex items-center justify-center border-b border-gray-700">
-          <Truck className="w-8 h-8 text-emerald-400" />
-          <h1 className="ml-2 text-xl font-bold">Guarita PB01</h1>
-        </div>
-        <nav className="flex-1 p-4 space-y-2 overflow-y-auto">
-          <NavItem
-            to="/dashboard"
-            icon={<Home className="w-5 h-5" />}
-            label="Dashboard"
-          />
+    <SidebarProvider>
+      <AppSidebar />
+      <div className="flex h-screen bg-gray-900 text-gray-100">
+        <aside className="w-64 bg-gray-800 border-r border-gray-700 flex flex-col">
+          <div className="h-16 flex items-center justify-center border-b border-gray-700">
+            <Truck className="w-8 h-8 text-emerald-400" />
+            <h1 className="ml-2 text-xl font-bold">Guarita PB01</h1>
+          </div>
+          <nav className="flex-1 p-4 space-y-2 overflow-y-auto">
+            <NavItem
+              to="/dashboard"
+              icon={<Home className="w-5 h-5" />}
+              label="Dashboard"
+            />
 
-          <Accordion
-            title="Embarques"
-            icon={<ArrowUpCircle className="w-5 h-5" />}
-          >
-            <NavItem
-              to="/emb/soja"
-              icon={<Combine className="w-5 h-5" />}
-              label="Soja"
-            />
-            <NavItem
-              to="/emb/milho"
-              icon={<Wheat className="w-5 h-5" />}
-              label="Milho"
-            />
-            <NavItem
-              to="/emb/alg-pluma"
-              icon={<Package className="w-5 h-5" />}
-              label="Alg. Pluma"
-            />
-            <NavItem
-              to="/emb/diversos"
-              icon={<Package className="w-5 h-5" />}
-              label="Diversos"
-            />
-          </Accordion>
+            <Accordion
+              title="Embarques"
+              icon={<ArrowUpCircle className="w-5 h-5" />}
+            >
+              <NavItem
+                to="/emb/soja"
+                icon={<Combine className="w-5 h-5" />}
+                label="Soja"
+              />
+              <NavItem
+                to="/emb/milho"
+                icon={<Wheat className="w-5 h-5" />}
+                label="Milho"
+              />
+              <NavItem
+                to="/emb/alg-pluma"
+                icon={<Package className="w-5 h-5" />}
+                label="Alg. Pluma"
+              />
+              <NavItem
+                to="/emb/diversos"
+                icon={<Package className="w-5 h-5" />}
+                label="Diversos"
+              />
+            </Accordion>
 
-          <Accordion
-            title="Recebimentos"
-            icon={<ArrowDownCircle className="w-5 h-5" />}
-          >
-            <NavItem
-              to="/rec/ssp"
-              icon={<Tractor className="w-5 h-5" />}
-              label="SSP"
-            />
-            <NavItem
-              to="/rec/kcl"
-              icon={<Tractor className="w-5 h-5" />}
-              label="KCL"
-            />
-            <NavItem
-              to="/rec/ureia"
-              icon={<Tractor className="w-5 h-5" />}
-              label="Ureia"
-            />
-            <NavItem
-              to="/rec/calcario"
-              icon={<Tractor className="w-5 h-5" />}
-              label="Calcário"
-            />
-            <NavItem
-              to="/rec/diversos"
-              icon={<Tractor className="w-5 h-5" />}
-              label="Diversos"
-            />
-            <NavItem
-              to="/rec/semente"
-              icon={<Tractor className="w-5 h-5" />}
-              label="Semente"
-            />
-          </Accordion>
-        </nav>
-      </aside>
-      <main className="flex-1 p-6 overflow-y-auto">
-        <Outlet />
-      </main>
-    </div>
+            <Accordion
+              title="Recebimentos"
+              icon={<ArrowDownCircle className="w-5 h-5" />}
+            >
+              <NavItem
+                to="/rec/ssp"
+                icon={<Tractor className="w-5 h-5" />}
+                label="SSP"
+              />
+              <NavItem
+                to="/rec/kcl"
+                icon={<Tractor className="w-5 h-5" />}
+                label="KCL"
+              />
+              <NavItem
+                to="/rec/ureia"
+                icon={<Tractor className="w-5 h-5" />}
+                label="Ureia"
+              />
+              <NavItem
+                to="/rec/calcario"
+                icon={<Tractor className="w-5 h-5" />}
+                label="Calcário"
+              />
+              <NavItem
+                to="/rec/diversos"
+                icon={<Tractor className="w-5 h-5" />}
+                label="Diversos"
+              />
+              <NavItem
+                to="/rec/semente"
+                icon={<Tractor className="w-5 h-5" />}
+                label="Semente"
+              />
+            </Accordion>
+          </nav>
+        </aside>
+        <main className="flex-1 p-6 overflow-y-auto">
+          <Outlet />
+        </main>
+      </div>
+    </SidebarProvider>
   );
 };
 
