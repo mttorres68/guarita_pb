@@ -1,13 +1,16 @@
 import { Route, Routes } from "react-router";
 import Home from "../pages/home/Home";
 import About from "../pages/about/About";
+import Layout from "./components/Layout";
 
 const AppRoutes = () => {
   return (
     <>
       <Routes>
-        <Route index element={<Home />} />
-        <Route path="sobre" element={<About />} />
+        <Route element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="sobre" element={<About />} />
+        </Route>
 
         {/* <Route element={<AuthLayout />}>
           <Route path="login" element={<Login />} />
