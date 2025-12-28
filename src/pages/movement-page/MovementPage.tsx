@@ -11,7 +11,11 @@ const MovementPage: React.FC<MovementPageProps> = ({
   category,
   title,
 }) => {
-  return <div className="d">{title}</div>;
+  return (
+    <div className="d">
+      {title} - {category}
+    </div>
+  );
 };
 
 export default MovementPage;
