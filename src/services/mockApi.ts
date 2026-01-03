@@ -1,211 +1,219 @@
 import {
-  Movimentacao,
   Status,
-  MovimentacaoTipo,
-  Categoria,
-  Produto,
-  Transportadora,
-  Fornecedor,
-} from "../types";
+  MovementType,
+  ReceiptCategory,
+  BoardingCategory,
+  type Movement,
+  type Product,
+  type TransportCompany,
+  type Supplier,
+  type Category,
+} from "@/lib/types";
 
-let mockMovimentacoes: Movimentacao[] = [
+let mockMovements: Movement[] = [
   {
     id: "1",
-    numero: "1001",
-    tipo: MovimentacaoTipo.RECEBIMENTO,
-    categoria: "REC_KCL" as Categoria,
-    placa: "ROR2F70",
+    order: "1001",
+    type: MovementType.RECEBIMENTO,
+    category: ReceiptCategory.KCL,
+    licensePlate: "ROR2F70",
     cpf: "81649231334",
-    eixos: 5,
-    transportadora: "SARTCO",
-    fornecedor: "ADM",
-    produto: "KCL 00-00-60 GR",
-    dataHora: new Date().toISOString(),
+    axles: 5,
+    carrier: "SARTCO",
+    supplier: "ADM",
+    product: "KCL 00-00-60 GR",
+    dateTime: new Date().toISOString(),
     status: Status.DESCARREGANDO,
   },
   {
     id: "2",
-    numero: "1002",
-    tipo: MovimentacaoTipo.RECEBIMENTO,
-    categoria: "REC_KCL" as Categoria,
-    placa: "RCF5C49",
+    order: "1002",
+    type: MovementType.RECEBIMENTO,
+    category: ReceiptCategory.KCL,
+    licensePlate: "RCF5C49",
     cpf: "03543506331",
-    eixos: 6,
-    transportadora: "SARTCO",
-    fornecedor: "ADM",
-    produto: "KCL 00-00-60 GR",
-    dataHora: new Date().toISOString(),
+    axles: 6,
+    carrier: "SARTCO",
+    supplier: "ADM",
+    product: "KCL 00-00-60 GR",
+    dateTime: new Date().toISOString(),
     status: Status.DESCARREGANDO,
   },
   {
     id: "3",
-    numero: "1003",
-    tipo: MovimentacaoTipo.RECEBIMENTO,
-    categoria: "REC_KCL" as Categoria,
-    placa: "ROJ0J81",
+    order: "1003",
+    type: MovementType.RECEBIMENTO,
+    category: ReceiptCategory.KCL,
+    licensePlate: "ROJ0J81",
     cpf: "60831194308",
-    eixos: 5,
-    transportadora: "SARTCO",
-    fornecedor: "ADM",
-    produto: "KCL 00-00-60 GR",
-    dataHora: new Date(
+    axles: 5,
+    carrier: "SARTCO",
+    supplier: "ADM",
+    product: "KCL 00-00-60 GR",
+    dateTime: new Date(
       new Date().setDate(new Date().getDate() - 1)
     ).toISOString(),
     status: Status.AGUARD_DESEMBARQUE,
   },
   {
     id: "4",
-    numero: "2001",
-    tipo: MovimentacaoTipo.RECEBIMENTO,
-    categoria: "REC_CALCARIO" as Categoria,
-    placa: "ROC4B45",
+    order: "2001",
+    type: MovementType.RECEBIMENTO,
+    category: ReceiptCategory.CALCARIO,
+    licensePlate: "ROC4B45",
     cpf: "60475682386",
-    eixos: 7,
-    transportadora: "GUERRA TRASP.",
-    fornecedor: "CALTINS",
-    produto: "CALCARIO DOLOMITICO",
-    dataHora: new Date().toISOString(),
+    axles: 7,
+    carrier: "GUERRA TRASP.",
+    supplier: "CALTINS",
+    product: "CALCARIO DOLOMITICO",
+    dateTime: new Date().toISOString(),
     status: Status.DESCARREGANDO,
   },
   {
     id: "5",
-    numero: "2002",
-    tipo: MovimentacaoTipo.RECEBIMENTO,
-    categoria: "REC_CALCARIO" as Categoria,
-    placa: "SMN5C95",
+    order: "2002",
+    type: MovementType.RECEBIMENTO,
+    category: ReceiptCategory.CALCARIO,
+    licensePlate: "SMN5C95",
     cpf: "00450796531",
-    eixos: 9,
-    transportadora: "GUERRA TRASP.",
-    fornecedor: "CALTINS",
-    produto: "CALCARIO DOLOMITICO",
-    dataHora: new Date(
+    axles: 9,
+    carrier: "GUERRA TRASP.",
+    supplier: "CALTINS",
+    product: "CALCARIO DOLOMITICO",
+    dateTime: new Date(
       new Date().setDate(new Date().getDate() - 2)
     ).toISOString(),
     status: Status.FINALIZADO,
   },
   {
     id: "6",
-    numero: "3001",
-    tipo: MovimentacaoTipo.EMBARQUE,
-    categoria: "EMB_SOJA" as Categoria,
-    placa: "ABC1D23",
+    order: "3001",
+    type: MovementType.EMBARQUE,
+    category: BoardingCategory.SOJA,
+    licensePlate: "ABC1D23",
     cpf: "12345678901",
-    eixos: 5,
-    transportadora: "AGROCARGO",
-    fornecedor: "FAZENDA SOL NASCENTE",
-    produto: "SOJA EM GRÃOS",
-    dataHora: new Date(
+    axles: 5,
+    carrier: "AGROCARGO",
+    supplier: "FAZENDA SOL NASCENTE",
+    product: "SOJA EM GRÃOS",
+    dateTime: new Date(
       new Date().setDate(new Date().getDate() - 1)
     ).toISOString(),
     status: Status.EMBARCANDO,
   },
   {
     id: "7",
-    numero: "3002",
-    tipo: MovimentacaoTipo.EMBARQUE,
-    categoria: "EMB_SOJA" as Categoria,
-    placa: "DEF4E56",
+    order: "3002",
+    type: MovementType.EMBARQUE,
+    category: BoardingCategory.SOJA,
+    licensePlate: "DEF4E56",
     cpf: "23456789012",
-    eixos: 6,
-    transportadora: "AGROCARGO",
-    fornecedor: "FAZENDA LUA CHEIA",
-    produto: "SOJA EM GRÃOS",
-    dataHora: new Date().toISOString(),
+    axles: 6,
+    carrier: "AGROCARGO",
+    supplier: "FAZENDA LUA CHEIA",
+    product: "SOJA EM GRÃOS",
+    dateTime: new Date().toISOString(),
     status: Status.AGUARD_EMBARQUE,
   },
   {
     id: "8",
-    numero: "4001",
-    tipo: MovimentacaoTipo.EMBARQUE,
-    categoria: "EMB_MILHO" as Categoria,
-    placa: "GHI7F89",
+    order: "4001",
+    type: MovementType.EMBARQUE,
+    category: BoardingCategory.MILHO,
+    licensePlate: "GHI7F89",
     cpf: "34567890123",
-    eixos: 9,
-    transportadora: "TRANSGRAOS",
-    fornecedor: "SÍTIO MILHARAL",
-    produto: "MILHO SAFRINHA",
-    dataHora: new Date(
+    axles: 9,
+    carrier: "TRANSGRAOS",
+    supplier: "SÍTIO MILHARAL",
+    product: "MILHO SAFRINHA",
+    dateTime: new Date(
       new Date().setDate(new Date().getDate() - 3)
     ).toISOString(),
     status: Status.FINALIZADO,
   },
 ];
 
-const mockProdutos: Produto[] = [
-  { id: "1", nome: "KCL 00-00-60 GR" },
-  { id: "2", nome: "CALCARIO DOLOMITICO" },
-  { id: "3", nome: "GESSO AGRIC." },
-  { id: "4", nome: "SOJA EM GRÃOS" },
-  { id: "5", nome: "MILHO SAFRINHA" },
+const mockProducts: Product[] = [
+  { id: "1", name: "KCL 00-00-60 GR" },
+  { id: "2", name: "CALCARIO DOLOMITICO" },
+  { id: "3", name: "GESSO AGRIC." },
+  { id: "4", name: "SOJA EM GRÃOS" },
+  { id: "5", name: "MILHO SAFRINHA" },
 ];
 
-const mockTransportadoras: Transportadora[] = [
-  { id: "1", nome: "SARTCO" },
-  { id: "2", nome: "GUERRA TRASP." },
-  { id: "3", nome: "AGROCARGO" },
-  { id: "4", nome: "TRANSGRAOS" },
+const mockTransportCompanies: TransportCompany[] = [
+  { id: "1", name: "SARTCO" },
+  { id: "2", name: "GUERRA TRASP." },
+  { id: "3", name: "AGROCARGO" },
+  { id: "4", name: "TRANSGRAOS" },
 ];
 
-const mockFornecedores: Fornecedor[] = [
-  { id: "1", nome: "ADM" },
-  { id: "2", nome: "CALTINS" },
-  { id: "3", nome: "INPASA" },
-  { id: "4", nome: "FAZENDA SOL NASCENTE" },
+const mockSuppliers: Supplier[] = [
+  { id: "1", name: "ADM" },
+  { id: "2", name: "CALTINS" },
+  { id: "3", name: "INPASA" },
+  { id: "4", name: "FAZENDA SOL NASCENTE" },
 ];
 
-const simulateDelay = <T>(data: T): Promise<T> => {
-  return new Promise((resolve) => setTimeout(() => resolve(data), 500));
-};
+const simulateDelay = <T>(data: T): Promise<T> =>
+  new Promise((resolve) => setTimeout(() => resolve(data), 500));
 
-export const getMovimentacoes = (filters?: {
-  tipo?: MovimentacaoTipo;
-  categoria?: Categoria;
+export const getMovements = (filters?: {
+  type?: MovementType;
+  category?: Category;
   search?: string;
 }) => {
-  let results = [...mockMovimentacoes];
-  if (filters?.tipo) {
-    results = results.filter((m) => m.tipo === filters.tipo);
+  let results = [...mockMovements];
+
+  if (filters?.type) {
+    results = results.filter((m) => m.type === filters.type);
   }
-  if (filters?.categoria) {
-    results = results.filter((m) => m.categoria === filters.categoria);
+
+  if (filters?.category) {
+    results = results.filter((m) => m.category === filters.category);
   }
+
   if (filters?.search) {
     const searchTerm = filters.search.toLowerCase();
     results = results.filter(
       (m) =>
-        m.placa.toLowerCase().includes(searchTerm) ||
+        m.licensePlate.toLowerCase().includes(searchTerm) ||
         m.cpf.toLowerCase().includes(searchTerm) ||
-        m.numero.toLowerCase().includes(searchTerm)
+        m.order.toLowerCase().includes(searchTerm)
     );
   }
+
   return simulateDelay(
     results.sort(
-      (a, b) => new Date(b.dataHora).getTime() - new Date(a.dataHora).getTime()
+      (a, b) => new Date(b.dateTime).getTime() - new Date(a.dateTime).getTime()
     )
   );
 };
 
 export const getDashboardStats = () => {
-  const stats = mockMovimentacoes.reduce((acc, mov) => {
+  const stats = mockMovements.reduce((acc, mov) => {
     if (!acc[mov.status]) {
       acc[mov.status] = 0;
     }
     acc[mov.status]++;
     return acc;
   }, {} as Record<Status, number>);
+
   return simulateDelay(stats);
 };
 
-export const getProdutos = () => simulateDelay(mockProdutos);
-export const getTransportadoras = () => simulateDelay(mockTransportadoras);
-export const getFornecedores = () => simulateDelay(mockFornecedores);
+export const getProducts = () => simulateDelay(mockProducts);
+export const getTransportCompanies = () =>
+  simulateDelay(mockTransportCompanies);
+export const getSuppliers = () => simulateDelay(mockSuppliers);
 
-export const addMovimentacao = (mov: Omit<Movimentacao, "id" | "dataHora">) => {
-  const newMov: Movimentacao = {
+export const addMovement = (mov: Omit<Movement, "id" | "dateTime">) => {
+  const newMov: Movement = {
     ...mov,
-    id: (mockMovimentacoes.length + 1).toString(),
-    dataHora: new Date().toISOString(),
+    id: (mockMovements.length + 1).toString(),
+    dateTime: new Date().toISOString(),
   };
-  mockMovimentacoes.unshift(newMov);
+
+  mockMovements.unshift(newMov);
   return simulateDelay(newMov);
 };

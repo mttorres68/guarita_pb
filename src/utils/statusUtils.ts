@@ -1,4 +1,5 @@
-import { Status } from "../types";
+import  { Status } from "@/lib/types";
+
 
 export const statusText = (status: Status): string => {
   const map: Record<Status, string> = {
