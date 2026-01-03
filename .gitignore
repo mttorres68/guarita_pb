@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+
+src/pages/DashboardPage.txt
+src/pages/MovimentacaoPage.txt
