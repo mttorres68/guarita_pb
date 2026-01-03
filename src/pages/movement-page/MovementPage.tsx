@@ -7,7 +7,7 @@ interface MovementPageProps {
 }
 
 const MovementPage: React.FC<MovementPageProps> = ({
-  typeMovement,
+  // typeMovement,
   category,
   title,
 }) => {

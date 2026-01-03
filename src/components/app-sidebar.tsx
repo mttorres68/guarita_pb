@@ -21,7 +21,7 @@ import { NavLink } from "react-router";
 import { receivingRoutes, boardingRoutes } from "@/lib/utils";
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
-  const [activeItem, setActiveItem] = React.useState(boardingRoutes[0]);
+  // const [activeItem, setActiveItem] = React.useState(boardingRoutes[0]);
   return (
     <Sidebar {...props} collapsible="icon" className="overflow-hidden">
       <SidebarHeader className="border-sidebar-border h-16 border-b">
