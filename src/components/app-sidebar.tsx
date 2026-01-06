@@ -82,7 +82,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <SidebarSeparator className="mx-0" />
         <SidebarGroup>
           <SidebarGroupLabel>
-            <ArrowBigDown /> receivingRoutes
+            <ArrowBigDown /> Recebimento
           </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
