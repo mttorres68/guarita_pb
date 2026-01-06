@@ -1,4 +1,5 @@
 import { AppSidebar } from "@/components/app-sidebar";
+import { DateRangePicker } from "@/components/date-ranger";
 import { ThemeProvider } from "@/components/theme-provider";
 import {
   Breadcrumb,
@@ -30,7 +31,9 @@ const Layout: React.FC = () => {
               <Breadcrumb>
                 <BreadcrumbList>
                   <BreadcrumbItem>
-                    <BreadcrumbPage>October 2024</BreadcrumbPage>
+                    <BreadcrumbPage>
+                      <DateRangePicker />
+                    </BreadcrumbPage>
                   </BreadcrumbItem>
                 </BreadcrumbList>
               </Breadcrumb>
